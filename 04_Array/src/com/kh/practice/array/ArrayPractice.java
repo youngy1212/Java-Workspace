@@ -123,18 +123,18 @@ public class ArrayPractice {
 		 
 		 Scanner sc = new Scanner(System.in);
 		 
-		 String[] arr = { "양념","간장","후라이드","핫"};
+		 String[] arr = {"양념","간장","후라이드","핫"};
 		 
 		 System.out.print("치킨 이름을 입력하세요 : ");
 		 String str = sc.nextLine();
 		 
-		 
-		
-		 
-		 
-		 
+		 for(int i =0; i<arr.length; i++) {
+			 if(str.equals(arr[i])){
+				 System.out.println(str +"치킨 배달가능");
+				 return;
+			 } 
+		 }
+		 System.out.println(str+"치킨은 없는 메뉴입니다.");
 	 }
-	 
-	 
 	 
 }
