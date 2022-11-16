@@ -1,5 +1,6 @@
 package com.kh.practice.array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -59,22 +60,24 @@ public class ArrayPractice {
 		 System.out.print("문자열을 입력하세요 : ");
 		 String str = sc.nextLine();
 		 
-		 int size = str.length();
-		 char[] arr = new char[size];
-		 
 		 System.out.print("검색할 문자를 입력하세요 : ");
 		 char ch = sc.nextLine().charAt(0);
 		 
-		 System.out.printf("%s에 %s가 존재하는 위치 : ",str,ch );
-		 int sum = 0;
+		 char[] arr = new char[str.length()];
 		 
-		 for(int i = 0; i < size; i++) {
+		 // 문자열 length() 문자열 메소드
+		 // arr. length arr안에 있는 변수 메소드 x ()가 없음.
+		 
+		 System.out.printf("%s에 %s가 존재하는 위치 : ",str,ch );
+		 int count = 0;
+		 
+		 for(int i = 0; i < arr.length; i++) {
 			 arr[i] = str.charAt(i);
 			 if(ch==arr[i]) {
 				 System.out.print(i +" ");
-				 sum++;
+				 count++;
 			 }
-		 }System.out.printf("\n %s의 개수: %d",ch,sum);
+		 }System.out.printf("\n%s의 개수: %d",ch,count);
 	 }
 	 
 	 public void practice6(){
@@ -115,6 +118,48 @@ public class ArrayPractice {
 		 }
 		 System.out.println("총 합 :"+sum);
 	 }
+	 
+	 public void practice8(){
+		 //3이상인 홀수 자연수를 입력 받아 배열의 중간까지는 1부터 1씩 증가하여 오름차순으로 값을 넣고,
+		 //중간 이후부터 끝까지는 1씩 감소하여 내림차순으로 값을 넣어 출력하세요.
+		 //단, 입력한 정수가 홀수가 아니거나 3 미만일 경우 “다시 입력하세요”를 출력하고
+		 // 다시 정수를 받도록 하세요.
+		 Scanner sc = new Scanner(System.in);
+		 
+		 System.out.print("정수 : ");
+		 int size = sc.nextInt();
+		 
+		 if(size <3 || (size %2 == 0)) {
+			 System.out.println("다시 입력하세요.");
+			 practice8();
+		 }else {
+			 int[] arr = new int[size];
+			 for(int i = 0; i<size; i++){
+				 if( i <= (size/2)) {
+					 arr[i] = i+1;
+			      }else {
+			    	  arr[i] = size-i;
+			      }
+		 }
+			 System.out.println(Arrays.toString(arr));
+		 }
+		 
+		 //풀이
+		 //else{
+		 // 	int[] arr = new int[size];
+		 //		for(int i =0; i<=size/2; i++){
+		 //			arr[i]= i+1;
+		 //		}
+		 //		for(int i = size/2+1; i<arr.length; i++){
+		 //			arr[i]= size-i;
+		 //		}
+		 // 	for(int i = 0; i<arr.length; i++{
+		 //			System.out.print(arr[i] + (i == arr.length-1 ? "" : "," ));
+		 //  	}		
+		 
+	 }
+		 
+	 
 	 
 	 public void practice9(){
 		// 사용자가 입력한 값이 배열에 있는지 검색하여
