@@ -29,15 +29,23 @@ public class DimensionPractice {
 		
 		int[][] arr = new int[4][4];
 		
-		int count = 1;
+		int value = 1;
 			for(int i =0; i<arr.length; i++) {
 				for(int j=0; j<arr[i].length; j++) {
-					arr[i][j] = count++;
+					arr[i][j] = value++;
 					System.out.printf("%4d",arr[i][j]);
 				}
 				System.out.println();
 			}	
 	}
+	public void printArray(int arr[][]) {
+		for(int i =0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				System.out.printf("%3d",arr[i][j]); // 이렇게 외부에 출력 메소드를 만들어서 불러오기 가능
+			}System.out.println();
+		}
+	}	
+	
 	
 	public void practice3(){
 		//4행 4열짜리 정수형 배열을 선언 및 할당하고
@@ -45,14 +53,16 @@ public class DimensionPractice {
 		//2) 저장된 값들을 차례대로 출력하세요.
 		
 		int[][] arr = new int[4][4];
-		int count = 16;
+		int value  = 16;
 			for(int i =0; i<arr.length; i++) {
 				for(int j=0; j<arr[i].length; j++) {
-					arr[i][j] = count--;
+					arr[i][j] = value--;
 					System.out.printf("%4d",arr[i][j]);
 			}
 				System.out.println();
 			}	
+			
+			printArray(arr);
 	}
 	
 	public void practice4(){
@@ -78,12 +88,28 @@ public class DimensionPractice {
 					sum2 += arr[3][i];
 			} arr[3][3] = sum2;
 			
+			
 			//출력
 			for(int i =0; i<arr.length; i++) {
 				for(int j=0; j<arr[i].length; j++) {
 					System.out.printf("%4d",arr[i][j]);
 				}System.out.println();
+			
 			}
+			
+			 //풀이
+			 int[][] arr2 = new int[4][4];
+			 for(int i = 0; i<arr2.length-1; i++){
+					for(int j =0; j<arr2.length-1; j++){
+					arr2[i][j] = (int)(Math.random()*10+1);
+					
+			 		arr2[i][3] += arr2[i][j];//각 행의 모든값
+					arr2[3][j] += arr2[i][j];//각 열의 모든값.
+			
+					arr2[3][3] += arr2[i][j]*2;// 가로 세로의 총합
+					}
+					
+			} printArray(arr2);
 		
 	}
 	
@@ -93,40 +119,36 @@ public class DimensionPractice {
 		//크기가 정해진 이차원 배열 안에는 영어 대문자가 랜덤으로 들어가게 한 뒤 출력하세요.
 		//(char형은 숫자를 더해서 문자를 표현할 수 있고 65는 A를 나타냄
 		
-		System.out.print("행 크기 :");
-		int num1 = sc.nextInt();
+		while(true) {
+			System.out.print("행 크기 :");
+			int row = sc.nextInt();
 		
-		System.out.print("열 크기 :");
-		int num2 = sc.nextInt();
+			System.out.print("열 크기 :");
+			int col = sc.nextInt();
 		
-		if(num1>10 || 1>num1) {
-			System.out.print("반드시 1~10사이의 정수를 입력해야합니다.\n");
-			practice5();
-			return;
-		} else {
-			if(num2>10 || 2>num1) {
-				System.out.print("반드시 1~10사이의 정수를 입력해야합니다.\n");	
-				practice5();
-				return;
+			if(!(row <= 10 && 1 <= row && col <= 10 && 1 <= col)){
+				System.out.println("반드시 1~10사이의 정수를 입력하세요.");
+				continue;
 			}
-		 }
 		
-		char[][] arr = new char[num1][num2];
+			char[][] arr = new char[row][col];
 		
-		for(int i =0; i<num1; i++) {
-			for(int j=0; j<num2; j++) {
-				arr[i][j] = (char)(Math.random()*25+65);
-				System.out.printf("%2s",arr[i][j]);
-			}System.out.println();
+			for(int i =0; i<row; i++) {
+				for(int j=0; j<col; j++) {
+					arr[i][j] = (char)(Math.random()*25+65);
+					System.out.printf("%2c",arr[i][j]);
+				}System.out.println();
+			} //printArray(arr); 에러 => int로 정의되어있음 but 보내는 데이터틑 char라서
+			break;
 		}
 	}
 	
 	public void practice6(){
 		String[][] strArr = new String[][] {{"이", "까", "왔", "앞", "힘"}, {"차", "지", "습", "으", "냅"}, {"원", 
-			"열", "니", "로", "시"}, {"배", "심", "다", "좀", "다"}, {"열", "히", "! ", "더", "!! "}};
+			"열", "니", "로", "시"}, {"배", "심", "다", "좀", "다"}, {"열", "히", "! ", "더", "!! "},{"..", "..", "..", "..", ".."}};
 	
-			for(int i =0; i<5; i++) {
-				for(int j=0; j<5; j++) {
+			for(int i = 0; i<strArr[0].length; i++) {
+				for(int j = 0; j < strArr.length; j++) {
 					System.out.print(strArr[j][i]+" ");
 				}
 			}	
@@ -143,13 +165,18 @@ public class DimensionPractice {
 		for(int i =0; i<arr.length; i++) {
 			System.out.print(i+"행의 열 크기 :");
 			arr[i] = new char[sc.nextInt()];
-		} System.out.println();
+		} 
 		
 		char vaule = 'a';
 		
 		for(int i = 0; i < arr.length; i++) {
 			for(int j = 0; j < arr[i].length; j++) {
-				arr[i][j] = vaule++;
+				arr[i][j] = vaule;
+				if(vaule == 'z') {
+					vaule = 'a'; // z를 넘어가면 다시 a로 back;
+				} else {
+					vaule++;
+				}
 				System.out.print(arr[i][j]+" ");
 			}
 			System.out.println();
@@ -188,28 +215,73 @@ public class DimensionPractice {
 		
 		System.out.print("검색할 학생 이름을 입력하세요 : ");
 		String name = sc.nextLine();
-		int a = 0;
+		int a = 99;
 		
 		for(int i = 0; i< arr.length; i++) {
 			if(name.equals(arr[i])) {
-				a=i;
+				a = i;
 			}
-		}
+		}	
 		
 		if(a < 6) {
 			System.out.println("검색하신 "+ name + " 학생은 1분단 " + (a<=1 ? "첫 번째 줄": 
 				(a <= 3) ? "두 번쨰 줄": "세 번째줄")+ (a%2 == 1 ? " 오른쪽에":" 왼쪽에")+" 있습니다.");
-		}else {
+		}else if(a < 12) {
 			System.out.println("검색하신 "+ name + " 학생은 2분단 " + (a<=7 ? "첫 번째 줄": 
 				(a <= 9) ? "두 번쨰 줄": "세 번째줄")+ (a%2 == 1 ? " 오른쪽에":" 왼쪽에")+" 있습니다.");
 		}
 		
-			
-		
-		
- 		
 	}
 	
+	public void practice9() {
+		String[] arr = {"강건강", "남나나" ,"도대담","류라라","문미미","박보배",
+				"송성실" , "윤예의", "진재주" , "차천축" , "피풍표" , "홍하하"};
+		
+		int count = 0;
+		
+		String[][] strArr1 = new String[3][2];
+		
+		System.out.println("== 1분단 ==");
+		for(int i = 0; i< strArr1.length; i++) {
+			for(int j =0; j<strArr1[i].length; j++) {
+				strArr1[i][j] = arr[count++];
+				System.out.print(strArr1[i][j]+" ");		
+			} System.out.println();
+		}
+			
+		String[][] strArr2 = new String[3][2];
+		System.out.println("== 2분단 ==");
+		for(int i = 0; i< strArr2.length; i++) {
+			for(int j =0; j<strArr2[i].length; j++) {
+				strArr2[i][j] = arr[count++];
+				System.out.print(strArr2[i][j]+" ");		
+			} System.out.println();
+		}
+		
+		//수업 풀이
+		System.out.print("검색할 학생의 이름을 입력하세요 : ");
+		String name = sc.nextLine();
+		
+		char[] line = {'첫', '두','세'};
+		
+		for(int i = 0; i<strArr1.length; i++) {
+			for(int j=0; j<strArr1[i].length; j++) {
+				if(strArr1[i][j].equals(name)) {
+					System.out.printf("검색하신 %s 학생은 1분단 %c번째 줄 %s쪽에 있습니다. ",name,line[i], j==0? "왼" : "오른");
+				}
+			}
+		}
+		
+		for(int i = 0; i<strArr2.length; i++) {
+			for(int j=0; j<strArr2[i].length; j++) {
+				if(strArr2[i][j].equals(name)) {
+					System.out.printf("검색하신 %s 학생은 2분단 %c번째 줄 %s쪽에 있습니다. ",name,line[i], j==0? "왼" : "오른");
+				}
+			}
+		}
+		
+		
+	}
 		
 }
 
