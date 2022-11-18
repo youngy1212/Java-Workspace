@@ -39,8 +39,23 @@ public class Run {
 		hong.setAge(20);
 		hong.setHeigh(166.6);
 		
+		
+		System.out.println(hong.getName());
+		
+		//return : 나를 호출했던 곳으로 돌아가, 내 뒤에 데이터를 넘겨줌.
+	
+		System.out.println(hong.getAge());
+		System.out.println(hong.getHeight());
+		
 		System.out.println(hong.information());
 		
+		Student min = new Student(); //class 객체를 만들기 위한 틀
+		min.setName("민경민");
+		min.setAge(31);
+		min.setHeigh(180.5); //각각의 객체 생성
+		
+		System.out.println(min.information());
+				
 	}
 
 }
