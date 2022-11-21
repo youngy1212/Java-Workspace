@@ -1,32 +1,29 @@
 package com.kh.example.practice6.model.vo;
 
 public class Book {
-	
+
 	private String title = " ";
 	private String publisher = " ";
 	private String author = " ";
 	private int price = 0;
 	private double discountRate = 0.0;
-	
+
 	public Book() {
-		
+
 	}
-	
-	public Book(String title, String publishe,String author) {
+
+	public Book(String title, String publisher, String author) {
 		this.title = title;
 		this.publisher = publisher;
 		this.author = author;
 	}
-	
-	public Book(String title, String publishe,String author,int pirce, 
-			double discountRate) {
-		this(title, publishe,author);
+
+	public Book(String title, String publisher, String author, int pirce, double discountRate) {
+		this(title, publisher, author);
 		this.price = pirce;
 		this.discountRate = discountRate;
 	}
-	
-	
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -68,9 +65,8 @@ public class Book {
 	}
 
 	public void inform() {
-		System.out.println(publisher + "에서 출간한 "+ author+"의 " + title+"는 정가" +price+"원 입니다."
-		+ "할인율 "+discountRate);
+		System.out.println(
+				publisher + "에서 출간한 " + author + "의 " + title + "는 정가" + price + "원 입니다." + "할인율 " + discountRate);
 	}
-	
-	
+
 }

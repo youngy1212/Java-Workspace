@@ -9,9 +9,6 @@ public class Run {
 
 		Student s = new Student();
 		//s.information();
-		
-		Lotto l = new Lotto();
-		l.information();
 	
 		
 	}

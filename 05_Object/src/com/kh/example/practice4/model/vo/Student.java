@@ -14,7 +14,7 @@ public class Student {
 		name = "김수한";
 		height = 188.0;
 		gender = 'M';
-	}
+	} //초기화 블럭도 2개 있음. 일반 초기화. static 초기화
 
 	public Student() {
 		
