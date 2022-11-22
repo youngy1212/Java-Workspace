@@ -4,13 +4,11 @@ import com.kh.hw.shape.model.vo.Shape;
 
 public class TriangleController {
 	
-	Shape s = new Shape();
+	private Shape s = new Shape();
 	
 	
 	public double calcArea(double height, double width) {
-		s.setHeight(height);
-		s.setWidth(width);
-		
+		s = new Shape(3 ,height,width); //매개변수 있는 생성자로 값을 초기화
 		return height*width/2;
 	}
 	public void paintColor(String color) {
