@@ -44,7 +44,10 @@ public class PointMenu {
 			case 1 : calcCircum(); break;
 			case 2 : calcCircleArea(); break;
 			case 9 : 
-			default : return;
+			default : return; // return 아니고 main 으로 설정할 경우...
+								//메인에서 끝내기를 눌러도 계속 돌아감..
+								// 메인 return을 타고 돌아가서 종료되는데
+								// main으로 작성시 return이 여기로 돌아와서 무한반복
 			
 			}
 		}
