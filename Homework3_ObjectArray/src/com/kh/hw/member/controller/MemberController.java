@@ -12,124 +12,145 @@ public class MemberController {
 	public int existMemberNum() {
 		int count = 0;
 		
-		for(int i = 0; i<m.length; i++) {
-			if(m[i] != null) {
+		for(Member member : m ) {
+			if(member != null) {
 				count++;
 			}
 		}
 		return count;
 	}
 	
-	public Boolean checkId(String inputId) {
-		//아이디 중복확인 하는 메소드
+	public boolean checkId(String inputId) {
+
+		for(Member member : m) {
+			if(member != null && member.getId().equals(inputId)) {
+				return false;
+			} // member 값이 null인데 getId하면 null오류 
+			// member != null 이 앞에서 false가 뜨면 뒤는 실행 X 오류 삭제
+		}
 		
-		
-		return false;
+		return true;
 	}
 	
 	public void insertMember(String id, String name, String password, String email, char gender, int age) {
-		m[existMemberNum()] = new Member(id,name,password,email,gender,age);
-	
+		m[existMemberNum()] = new Member(id,name,password,email,gender,age); 
 	}
 	
 	public String searchId(String id) {
-		String search = "검색 결과가 없습니다.";
-		for(int i =0; i<existMemberNum(); i++) {
-			if(m[i].getId().equals(id)) {
-				search = "찾으신 결과 조회 결과 입니다."+ m[i].inform(); break;
+//		String search = "검색 결과가 없습니다.";
+//		for(int i =0; i<existMemberNum(); i++) {
+//			if(m[i].getId().equals(id)) {
+//				search = "찾으신 결과 조회 결과 입니다."+ m[i].inform(); break;
+//			}
+//		}return search;
+		
+		for(Member member : m) {
+			if(member != null && member.getId().equals(id)) {
+				return member.toString();
 			}
 		}
-		return search;
-		
+		return "";
 	}
 	
-	public String searchName(String name) { // why? Member[]???
-		String search1 = "검색 결과가 없습니다.";
-		for(int i =0; i<existMemberNum(); i++) {
-			if(m[i].getId().equals(name)) {
-				search1 = "찾으신 결과 조회 결과 입니다."+ m[i].inform(); break;
+	public Member[] searchName(String name) { // why? Member[]??? 일치하는 객체가 여러개일수 있어서
+
+		Member[] members = new Member[SIZE];
+		int index = 0;
+		
+		for(Member member : m) {
+			if(members != null && member.getName().equals(name)) {
+				members[index++] = member;
 			}
 		}
-		return search1;
+		return members;
 	}
 		
 		
-	public String searchEmail(String email) { // why? Member[]???
-		String search2 = "검색 결과가 없습니다.";
-		for(int i =0; i<existMemberNum(); i++) {
-			if(m[i].getId().equals(email)) {
-				search2 = "찾으신 결과 조회 결과 입니다."+ m[i].inform(); break;
+	public Member[] searchEmail(String email) { 
+
+		Member[] members = new Member[SIZE];
+		int index = 0;
+		
+		for(Member member : m) {
+			if(members != null && member.getEmail().equals(email)) {
+				members[index++] = member;
 			}
 		}
-		return search2;
-		//이메일로 회원을 조회하는 메소드
+		return members;
 	}
 	
-	public Boolean updatePassword(String id, String password) {
-		Boolean updat = true;
-	
-		for(int i =0; i<existMemberNum(); i++) {
-			if(m[i].getId().equals(id)) {
-				m[i].setPassword(password); 
-				updat = false;
-				break;
+	public boolean updatePassword(String id, String password) {
+		boolean updat = false;
+//	
+//		for(int i =0; i<existMemberNum(); i++) {
+//			if(m[i].getId().equals(id)) {
+//				m[i].setPassword(password); 
+//				updat = false;
+//				break;
+//			}
+		
+		for(Member member : m) {
+			if(member != null && member.getId().equals(id)) {
+				member.setPassword(password);
+				updat = true;
 			}
+			
 		}
 		return updat;
 	}
 	
-	public Boolean updateName(String id, String name) {
-		Boolean updat = true;
+	public boolean updateName(String id, String name) {
+		boolean updat = false;
 		
-		for(int i =0; i<existMemberNum(); i++) {
-			if(m[i].getId().equals(id)) {
-				m[i].setName(name); 
-				updat = false;
-				break;
+//		for(int i =0; i<existMemberNum(); i++) {
+//			if(m[i].getId().equals(id)) {
+//				m[i].setName(name); 
+//				updat = false;
+//				break;
+//			}
+//		}
+		for(Member member : m) {
+			if(member != null && member.getId().equals(id)) {
+				member.setName(name);
+				updat = true;
 			}
+			
+		}
+		
+		return updat;
+	}
+	public boolean updateEmail(String id, String email) {
+		boolean updat = false;
+		
+		for(Member member : m) {
+			if(member != null && member.getId().equals(id)) {
+				member.setEmail(email);
+				updat = true;
+			}
+			
 		}
 		return updat;
 	}
-	public Boolean updateEmail(String id, String email) {
-		Boolean updat = true;
-		
-		for(int i =0; i<existMemberNum(); i++) {
-			if(m[i].getId().equals(id)) {
-				m[i].setEmail(email);
-				updat = false;
-				break;
-			}
-		}
-		return updat;
-		
-	}
-	public Boolean delete(String id) {
-		Boolean dele = true;
-		for(int i =0; i<existMemberNum(); i++) {
-			if(m[i].getId().equals(id)) {
+	public boolean delete(String id) {
+		boolean dele = false;
+		for(int i =0; i<SIZE; i++) {
+			if(m[i] != null && m[i].getId().equals(id)) {
 				m[i] = null;
-				dele = false;
+				dele = true;
 				break;
-			}
-		}	
+		}
 		
+		}
 		return dele;
 	}
 	public void delete() {
-		//전체 회원을 삭제하는 메소드
-		Member m = null;
+		
+		m = new Member[SIZE]; // 새객체로 초기화
 		
 	}
 	
 	public Member[] printAll()  {
-		Member[] MemberList = new Member[SIZE];
-		
-		for(int i =0; i< existMemberNum(); i++) {
-			MemberList[i] = m[i];
-		}
-		return MemberList;
-	}
-	
-	
+		return m;
+	}	
 
 }
