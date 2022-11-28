@@ -46,7 +46,7 @@ public class V40 extends SmartPhone implements NotePen{
 		return
 		"V40는"+ super.getMaker()+"에서 만들어졌고 제원은 다음과 같다.\n"+
 		makeCall()+"\n"+takeCall()+"\n"+picture()+"\n" +charge()+"\n"+touch()+"\n"
-		+"블루투스 펜 탑재 여부 : "+ touch();
+		+"블루투스 펜 탑재 여부 : "+ bluetoothPen();
 		
 	}
 

@@ -49,7 +49,7 @@ public class GalaxyNote9 extends SmartPhone implements NotePen{
 		return
 		"갤럭시 노트 9는"+ super.getMaker()+"에서 만들어졌고 제원은 다음과 같다.\n"+
 		makeCall()+"\n"+takeCall()+"\n"+picture()+"\n" +charge()+"\n"+touch()+"\n"
-		+"블루투스 펜 탑재 여부 : "+ touch();
+		+"블루투스 펜 탑재 여부 : "+ bluetoothPen();
 		
 		
 		

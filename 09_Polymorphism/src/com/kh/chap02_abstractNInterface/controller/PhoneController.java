@@ -8,20 +8,21 @@ public class PhoneController {
 	
 	public String[] method() {
 		Phone[] p2 = new Phone[2];
+		String[] pp = new String[2];
 		
 		p2[0]= new GalaxyNote9();
 		p2[1]= new V40();
 		
 		for(int i =0; i<result.length; i++) {
 			if(p2[i] instanceof V40 ) {
-				 ((V40)p2[i]).printInformation();
+				pp[i] = ((V40)p2[i]).printInformation();
 			}else {
-				((GalaxyNote9)p2[i]).printInformation();
+				 pp[i] = ((GalaxyNote9)p2[i]).printInformation();
 			}
 		
 		}
+		return pp;
 		
-		return p2;
 		
 	}
 }
