@@ -36,14 +36,12 @@ public class TokenMenu {
 		String str = "J a v a P r o g r a m";
 		
 		StringTokenizer st = new StringTokenizer(str, " ");
-		System.out.println(st.countTokens());
 		
-		tc.afterToken(str);
+		System.out.println("토큰 처리 전 글자 : "+ str);
+		System.out.println("토큰 처리 전 개수 : "+str.length());
+		System.out.println("토큰 처리 후 글자 : "+tc.afterToken(str));
+		System.out.println("토큰 처리 후 개수 : "+ st.countTokens());
 		
-		
-		// TokenController(tc)의 afterToken()의 반환 값을 가지고
-		// 토큰 처리 후 글자, 토큰 처리 후 개수, 모두 대문자로 변환 한 것을 출력
-
 	}
 	
 	public void inputMenu() {
@@ -51,12 +49,12 @@ public class TokenMenu {
 		System.out.print("문자열을 입력하세요 :");
 		String input = sc.nextLine();
 		
-		System.out.println(tc.firstCap(input));
+		System.out.println("첫글자 대문자 : "+ tc.firstCap(input));
 		
 		System.out.print("찾을 문자를 하나 입력하세요 : ");
 		char one = sc.nextLine().charAt(0);
 		
-		System.out.println(one+"문자가 들어간 개수 :" + tc.findChar(input, one));
+		System.out.println(one+"문자가 들어간 개수 : " + tc.findChar(input, one));
 		
 		
 	}

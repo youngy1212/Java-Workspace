@@ -11,13 +11,23 @@ public class TokenController {
 	public String afterToken(String str) {
 		
 		StringTokenizer stn = new StringTokenizer(str," ");
+		String afterToken = "";
 		
-		return stn.nextToken(str);
+		while(stn.hasMoreTokens()) {
+			afterToken += stn.nextToken();
+		 }
+		
+		afterToken.toUpperCase();
+		
+		return afterToken;
 		
 	}
 	public String firstCap(String input) {
 		
-		return input.replace(input.substring(0,1),input.substring(0,1).toUpperCase());
+		char arr[] =input.toCharArray();
+		arr[0] = Character.toUpperCase(arr[0]);
+		
+		return String.valueOf(arr);
 		
 		
 		
