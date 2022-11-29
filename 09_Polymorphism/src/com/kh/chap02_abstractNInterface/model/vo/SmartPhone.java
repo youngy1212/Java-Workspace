@@ -8,9 +8,7 @@ public abstract class SmartPhone implements CellPhone, TouchDisplay {
 		super();
 	}
 	
-	public String printInformation() {
-		return "smartPhoe";
-	}
+	public abstract String printInformation(); // 글꼴이 기울어져있음. 추상메소드
 
 	public String getMaker() {
 		return maker;
