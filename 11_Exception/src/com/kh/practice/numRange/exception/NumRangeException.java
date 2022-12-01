@@ -1,6 +1,6 @@
 package com.kh.practice.numRange.exception;
 
-public class NumRangeException extends NumberController {
+public class NumRangeException extends RuntimeException{
 
 	public NumRangeException() {
 		super();

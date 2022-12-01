@@ -22,7 +22,7 @@ public class PersonMenu {
 		System.out.println("9. 끝내기");
 		System.out.print("메뉴번호 : ");
 		
-		int num = sc.nextInt();
+		int num = Integer.parseInt(sc.nextLine());
 		
 		switch(num) {
 		case 1: studentMenu(); break;
@@ -35,16 +35,17 @@ public class PersonMenu {
 	}
 	public void studentMenu(){
 		 
-		if(pc.personCount()[0]==3) {
-		System.out.println("학생을 담을 수 있는 공간이 꽉 찼기 떄문에 학생 추가 메노는 더 이상 활성화 되지 않습니다.");
+		if(pc.personCount()[0] == 3) {
+			System.out.println("학생을 담을 수 있는 공간이 꽉 찼기 떄문에 학생 추가 메뉴는 더 이상 활성화 되지 않습니다.");
 		}
-		
-		System.out.println("1. 학생 추가 ");
+		if(pc.personCount()[0] != 3) {	
+			System.out.println("1. 학생 추가 ");
+		}
 		System.out.println("2. 학생 보기");
 		System.out.println("9. 메인으로");
 		System.out.print("메뉴번호 : ");
 		
-		int num = sc.nextInt();
+		int num = Integer.parseInt(sc.nextLine());
 		
 		switch(num) {
 		case 1:  
@@ -61,13 +62,13 @@ public class PersonMenu {
 		if(pc.personCount()[1]==10) {
 			System.out.println("사원 담을 수 있는 공간이 꽉 찼기 떄문에 사원 추가 메뉴는 더 이상 활성화 되지 않습니다.");
 			}
-			
-
-		System.out.println("1. 사원 추가");
+		if(pc.personCount()[1]!= 10) {	
+			System.out.println("1. 사원 추가");
+		}
 		System.out.println("2. 사원 보기");
 		System.out.println("9. 메인으로");
 		
-		int num = sc.nextInt();
+		int num = Integer.parseInt(sc.nextLine());
 		
 		switch(num) {
 		case 1:  
@@ -78,28 +79,35 @@ public class PersonMenu {
 		default: System.out.println("잘못입력하셨습니다. 다시 입력해주세요.");
 		}
 		
-
+//		풀이 
+//		switch(num){
+//		case 2: printEmployee(); break;
+//		case 9: return;
+//		case 1: 
+//			if(pc.personCount()[1] != 10) {
+//				insertEmployee(); break;
+//			}
+//		default: System.out.println("잘못입력하셨습니다. 다시 입력해주세요.");
+//		}
 		
 	}
 	public void insertStudent(){
-		sc.nextLine();
 		while(true) {
 		System.out.print("학생 이름 : ");
 		String name = sc.nextLine();
 		
 		System.out.print("학생 나이 : ");
-		int age = sc.nextInt();
+		int age = Integer.parseInt(sc.nextLine());
 		
 		System.out.print("학생 키 :  ");
-		double height = sc.nextDouble();
+		double height = Double.parseDouble(sc.nextLine());
 		
 		System.out.print("학생 몸무게 :  ");
-		double weight = sc.nextDouble();
+		double weight = Double.parseDouble(sc.nextLine());
 		
 		System.out.print("학생 학년 :  ");
-		int grade = sc.nextInt();
+		int grade = Integer.parseInt(sc.nextLine());
 		
-		sc.nextLine();
 		System.out.print("학생 전공 : ");
 		String major = sc.nextLine();
 		
@@ -110,8 +118,8 @@ public class PersonMenu {
 			return;
 		}else {
 			System.out.println("그만하시려면 N(또는 n), 이어하시려면 아무 키나 누르세요" );
-			char a = sc.nextLine().charAt(0);
-			if(a == 'N' || a=='n') {
+			char a = sc.nextLine().toUpperCase().charAt(0);
+			if(a == 'N') {
 				return;
 			}
 		}
@@ -124,27 +132,30 @@ public class PersonMenu {
 			System.out.println(pc.printStudent()[i]);
 			}
 		}
+		
+		// Student[] arr = pc.pritnStudent();
+		// 	for(Studnet s : arr){
+		// 	System.out.println(s);
+		// 	}
 	}
 	public void insertEmployee() {
-		sc.nextLine();
 		
 		while(true) {
 			System.out.print("사원 이름 : ");
 			String name = sc.nextLine();
 			
 			System.out.print("사원 나이 : ");
-			int age = sc.nextInt();
+			int age = Integer.parseInt(sc.nextLine());
 			
 			System.out.print("사원 키 :  ");
-			double height = sc.nextDouble();
+			double height = Double.parseDouble(sc.nextLine());
 			
 			System.out.print("사원 몸무게 :  ");
-			double weight = sc.nextDouble();
+			double weight = Double.parseDouble(sc.nextLine());
 			
 			System.out.print("사원 월급 :  ");
-			int salary = sc.nextInt();
+			int salary = Integer.parseInt(sc.nextLine());
 			
-			sc.nextLine();
 			System.out.print("사원 부서 : ");
 			String dept = sc.nextLine();
 			

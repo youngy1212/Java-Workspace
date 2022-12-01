@@ -32,13 +32,21 @@ public class PersonController {
 	
 	public void insertStudent(String name, int age, double height, double weight,int grade, String major) {
 		s[personCount()[0]] = new Student(name, age,height,weight,grade,major);
+		
+//		//풀이 : 
+//		for(int i = 0; i<s.length; i++) {
+//			if(s[i] == null) {
+//				s[i]= new Student(name, age,height,weight,grade,major);
+//				break;
+//			}
+//		}
 	}
 	
 	public Student[] printStudent() {
-		Student[] pr = new Student[3];
-		pr = s;
+//		Student[] pr = new Student[3];
+//		pr = s;
 		
-		return pr;
+		return s;
 		
 	}
 	

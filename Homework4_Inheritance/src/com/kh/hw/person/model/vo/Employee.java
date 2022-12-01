@@ -7,9 +7,8 @@ public class Employee extends Person{
 	
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public Employee(String name, int age, double height, double weight,int salart, String dept) {
+	public Employee(String name, int age, double height, double weight,int salary, String dept) {
 		super(name, age, height, weight);
 		this.salary = salary;
 		this.dept = dept;
