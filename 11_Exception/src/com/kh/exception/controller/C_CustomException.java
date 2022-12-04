@@ -15,7 +15,7 @@ public class C_CustomException extends RuntimeException{
 		
 	}
 	
-	public C_CustomException(String ms) {
+	public C_CustomException(String msg) {
 		super(msg);
 	}
 	

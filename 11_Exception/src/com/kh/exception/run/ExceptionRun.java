@@ -31,7 +31,7 @@ public class ExceptionRun {
 		
 		A_UncheckedException aue = new A_UncheckedException();
 		
-		//aue.method1();
+		aue.method1();
 		//aue.method2();
 		//aue.method3();
 		
@@ -39,7 +39,7 @@ public class ExceptionRun {
 		//bce.method1();
 		
 		//throw : throw 뒤에 있는 예외를 강제적으로 발생시킴.
-		throw new C_CustomException("예외가 발생했습니다."); // throw => 무조건 강제로 예외
+		//throw new C_CustomException("예외가 발생했습니다."); // throw => 무조건 강제로 예외
 		
 		
 	}
