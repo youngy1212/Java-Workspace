@@ -1,6 +1,7 @@
 package com.kh.chap01_list.part01_arryList.run;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.kh.chap01_list.part01_arryList.model.vo.Music;
 
@@ -135,8 +136,30 @@ public class ListRun {
 			System.out.println(mm);
 		}
 		
-			
+		System.out.println("======================================");
+		
+		//7. subList(int index1 , int index2) : 해당 리스트로부터 index1에서 index2 까지의 데이터 값을
+		//										추출해서 새로운 List를 반환시켜주는 메소드
+		
+		List<Music> sub = list.subList(0, 2); // 0 < = 인덱스 범위 < 2
+		System.out.println(sub);
+		
+		
+		System.out.println("======================================");
+		//addAll(Collection c) : 해당 리스트에 다른 컬렉션에 있는 데이터들을 통채로 추가해주는 메소드
+		list.addAll(sub);
+		System.out.println(list); //sub가 복사한부분 전체를 복사해왔음.. 
+		
+		System.out.println("======================================");
+		//9. isEmpty() : 해당 리스트가 비어있는지 묻는 메소드(비어있음 true/ 비어있지 않다면 false)
+		System.out.println("리스트가 비어있습니까? "+list.isEmpty()); 
+		
+		//10. clear() : 해당 리스트를 비워주는 메소드
+		list.clear();
+		System.out.println("리스트가 비어있습니까? "+list.isEmpty());
 		
 	}
+		
+	
 
 }
