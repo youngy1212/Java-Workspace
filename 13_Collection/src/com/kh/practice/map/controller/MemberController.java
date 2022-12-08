@@ -25,6 +25,8 @@ public class MemberController {
 		return result;
 	}
 	
+	//풀이 체크하기 내가한건 중복가입가능..
+	
 	public String logIn(String id, String password) {
 		String result = null;
 		Member mm = new Member();
@@ -41,6 +43,12 @@ public class MemberController {
 		return result;
 		
 	}
+	
+	// * 풀이
+	// if(map.get(id) != null && map.get(id).getPassword().equals(password)){
+	//	result = map.get(id).getName();
+	// }
+	
 	
 	public boolean changePassword(String id, String oldPW, String newPw) {
 		boolean result = false;
@@ -60,6 +68,14 @@ public class MemberController {
 		return result;
 	}
 	
+	// * 풀이
+	// if(map.get(id) != null && map.get(id).getPassword().equals(password)){
+	//		map.get(id).setPasswoir(newPw);
+	//		return true;
+	// }
+	// 	 	return false;
+	
+	
 	public void changeName(String id, String newName) {
 		Member mm = new Member();
 		
@@ -70,26 +86,20 @@ public class MemberController {
 			}
 	}
 	
+	//*풀이 map.get(id).setName(newName);
+	
+	
 	public TreeMap sameName(String Name) {
-		TreeMap <String, Member> tMap = new TreeMap<>();
+		TreeMap <String, String> tMap = new TreeMap();
 		
-		set<map.keySet();
+		Set <String> keySet = map.keySet();
 		
-		if(map.containsValue(Name)) {
-			
+		for(String key : keySet) {
+			if(map.get(key).getName().equals(Name)) {
+				tMap.put(key,Name);
+			}	
 			
 		}
-		
-		
-		TreeMap <String, Member> tMap = new TreeMap<>();
-		
-		tMap.
-		
-		
-			
-			
-			
-		
 		
 		
 		return tMap;
