@@ -41,7 +41,7 @@ public class EnumRun {
 		System.out.println(EnumTest.MONDAT);
 		System.out.println(EnumTest.MONDAT.name());
 		
-		//enum으로 만들어둔 클래스 Import없이 사용가능.
+		//enum으로 만들어둔 클래스는 객체 생성 (new Day()) 없이 사용가능.
 		System.out.println(Day1.MONDAY);
 		
 		//enum필드안에 담긴 값을 반환해주는 메소드
@@ -56,7 +56,7 @@ public class EnumRun {
 		
 		for(Day3 day : Day3.values())
 		{
-			System.out.println(day);
+			System.out.println(day.name());
 		}
 		
 		System.out.println("========================================");
